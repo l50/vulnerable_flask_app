@@ -5,6 +5,9 @@ container
 ## Stand up a vulnerable instance
 ```make all```
 
+You can also use this command to destroy and rebuild an existing
+container as well.
+
 You will find a running instance of the web application at localhost:5000
 
 ### Disclaimer
