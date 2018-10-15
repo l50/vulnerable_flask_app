@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, abort, flash, make_response, redirect, render_template, request, session, url_for
+import base64
 import os
 import subprocess
 
@@ -19,7 +20,7 @@ def home():
         return redirect(url_for("hello"))
 
 
-@app.route("/hello")
+@app.route('/hello/', methods=['GET'])
 def hello():
 	if request.args.get('name'):
 		f = """
@@ -48,8 +49,8 @@ def login():
         return redirect(url_for('home'))
 
 
-@app.route("/rce")
-def rce():
+@app.route('/command_runner')
+def command_runner():
     if request.args.get('cmd'):
         cmd = [request.args.get('cmd')]
         try:
